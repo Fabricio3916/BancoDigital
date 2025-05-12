@@ -1,5 +1,3 @@
-package Contas;
-
 public abstract class Conta implements IConta{
 
     protected  static final int AGENCIA_PADRAO = 1;
@@ -8,10 +6,12 @@ public abstract class Conta implements IConta{
     protected int agencia;
     protected int numero;
     protected double saldo;
+    protected Cliente cliente;
 
-    public Conta() {
+    public Conta(Cliente cliente) {
         agencia = AGENCIA_PADRAO;
         numero = SEQUENCIAL++;
+        this.cliente = cliente;
     }
 
     public int getAgencia() {
@@ -40,6 +40,7 @@ public abstract class Conta implements IConta{
     }
 
     protected void imprimirInfosComuns() {
+        System.out.println("Titular: " + cliente.getNome());
         System.out.println("Agencia: " + this.agencia );
         System.out.println("Numero: " + this.numero );
         System.out.println("Saldo: " + this.saldo);

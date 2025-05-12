@@ -1,5 +1,3 @@
-package Contas;
-
 public interface IConta {
 
     void sacar(double valor);
